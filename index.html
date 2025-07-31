@@ -17,7 +17,10 @@
           padding: 0;
           box-sizing: border-box;
         }
-        
+        .status-safe-area {
+          height: env(safe-area-inset-top); /* ≈ 44px（iPhone 14） */
+          background: #fff;               /* 白色背景 */
+        }
         :root {
           --main-color: #303133;
           --minor-color: #909399;
