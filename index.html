@@ -10,16 +10,41 @@
     <link rel="apple-touch-startup-image" href="91icon.png">
     <meta name="apple-mobile-web-app-title" content="91视频">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- 1. 状态栏文字设为黑色 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- 2. 内容延伸到整个屏幕 -->
+<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1">
+
+<style>
+  /* 3. 顶部白色安全区 */
+  body {
+    margin: 0;
+  }
+
+  .safe-top {
+    height: env(safe-area-inset-top);   /* ≈ 20~47 px，自动适配机型 */
+    background: #fff;                   /* 白色“伪状态栏” */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  /* 4. 首屏内容往下推，避免被遮挡 */
+  .page {
+    padding-top: env(safe-area-inset-top);
+  }
+</style>
+
     <style>
         * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
         }
-        .status-safe-area {
-          height: env(safe-area-inset-top); /* ≈ 44px（iPhone 14） */
-          background: #fff;               /* 白色背景 */
+        
         }
         :root {
           --main-color: #303133;
